@@ -1,12 +1,19 @@
 // https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
 
 const container = document.querySelector("#container");
-const img = document.createElement("img");
-img.src =
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
-container.appendChild(img);
 
-for (let i = 1; i < 50; i++) {
-  img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
-  container.appendChild(img);
+const url =
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+
+for (let i = 1; i < 51; i++) {
+  const pokemon = document.createElement("div");
+  pokemon.classList.add("pokemon");
+  const label = document.createElement("span");
+  const img = document.createElement("img");
+  label.innerText = `#${i}`;
+  img.src = `${url}${i}.png`;
+
+  pokemon.appendChild(img);
+  pokemon.appendChild(label);
+  container.appendChild(pokemon);
 }
